@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<jsp:root   xmlns:jsp="http://java.sun.com/JSP/Page"
+            xmlns:c="http://java.sun.com/jsp/jstl/core"
+            version="2.1">
+    <jsp:directive.page contentType="text/html; charset=UTF-8" />
+    <jsp:directive.page isELIgnored="false" />
+    <jsp:output omit-xml-declaration="false"
+                doctype-root-element="html"
+                doctype-public="-//W3C//DTD XHTML 1.1//EN"
+                doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml11.dtd" />
+    <c:set var="contexto" value="${pageContext.request.contextPath}" />
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Menu CRUD</title>
+        <link rel="stylesheet" type="text/css" href="${contexto}/CSS/estilo.css" />
+    </head>
+    <body>
+        
+        <h2>CRUD con objetos DAO</h2>
+        <div>
+            <p><c:out value="Seleccione una opción:"/></p>
+            <ol>
+                <li><a href="${contexto}/eleccion2?opcion=add">Insertar</a></li>
+                <li><a href="${contexto}/eleccion2?opcion=update">Actualizar</a></li>
+                <li><a href="${contexto}/eleccion2?opcion=delete">Eliminar</a></li>
+                <li><a href="${contexto}/eleccion2?opcion=list">Visualizar</a></li>
+                
+
+                
+            </ol>
+        </div>
+    </body>
+</html>
+</jsp:root>

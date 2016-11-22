@@ -38,8 +38,8 @@ public class Controlador extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        MysqlDAOFactory objetoDao = new MysqlDAOFactory();
-        IAlumnosDao objetoMysql = objetoDao.getAlumnosDAO();
+        DAOFactory objetoDaoFactory = DAOFactory.getDAOFactory(1);
+        IAlumnosDao objetoMysql = objetoDaoFactory.getAlumnosDAO();
         ArrayList<Alumno> alumnos = objetoMysql.getAlumnos("");
         request.setAttribute("aluminitos", alumnos);
         request.getRequestDispatcher("jsp/respuesta.jsp").forward(request, response);
