@@ -6,7 +6,10 @@
 package es.albarregas.controllers;
 
 import es.albarregas.beans.Alumno;
+import es.albarregas.dao.IAlumnosDao;
 import es.albarregas.dao.MysqlAlumnosDao;
+import es.albarregas.factory.DAOFactory;
+import es.albarregas.factory.MysqlDAOFactory;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -34,7 +37,9 @@ public class Controlador extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        MysqlAlumnosDao objetoMysql = new MysqlAlumnosDao();
+        
+        MysqlDAOFactory objetoDao = new MysqlDAOFactory();
+        IAlumnosDao objetoMysql = objetoDao.getAlumnosDAO();
         ArrayList<Alumno> alumnos = objetoMysql.getAlumnos("");
         request.setAttribute("aluminitos", alumnos);
         request.getRequestDispatcher("jsp/respuesta.jsp").forward(request, response);

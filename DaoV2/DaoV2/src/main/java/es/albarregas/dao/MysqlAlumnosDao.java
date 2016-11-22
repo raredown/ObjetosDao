@@ -42,6 +42,7 @@ public class MysqlAlumnosDao implements IAlumnosDao {
                  alumno.setIdAlumno(resultado.getInt("idAlumno"));
                  alumno.setNombre(resultado.getString("nombre"));
                  alumno.setGrupo(resultado.getString("grupo"));
+                 alumno.setIdEquipo(resultado.getInt("idEquipo"));
                  alumnos.add(alumno);
              }
         } catch (SQLException ex) {
